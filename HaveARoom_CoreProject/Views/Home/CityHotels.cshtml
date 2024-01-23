@@ -1,0 +1,19 @@
+﻿@model List<HaveARoom_CoreProject.Models.Hotel>
+
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-md-3 mb-4">
+            <div class="card">
+                <img src="@item.Image" class="card-img-top img-fluid" alt="Card Image">
+                <div class="card-body">
+                    <h3 class="card-title fw-bold">@item.Name</h3>
+                    @* <p class="card-title">(@item.City.Name / @item.City.Country)</p> *@
+                    <a class="btn btn-success" asp-controller="Hotel" asp-action="DateSelection" asp-route-id=" @item.Id">View Rooms</a>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+

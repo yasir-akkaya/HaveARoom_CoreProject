@@ -1,0 +1,22 @@
+﻿@model List<HaveARoom_CoreProject.Models.City>
+@{
+    ViewData["Title"] = "Home Page";
+}
+<main>
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-3 mb-4">
+                <div class="card">
+                    <img src="@item.Image" class="card-img-top img-fluid" alt="Card Image">
+                    <div class="card-body">
+                        <h3 class="card-title fw-bold">@item.Name</h3>
+                        <p class="card-title">(@item.Country)</p>
+                        <a href="#" class="btn btn-primary ">View Hotels</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+
+</main>

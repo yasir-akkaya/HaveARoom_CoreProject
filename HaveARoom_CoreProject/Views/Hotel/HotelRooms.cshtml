@@ -1,0 +1,41 @@
+﻿@model List<HaveARoom_CoreProject.Models.Room>
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-md-3 mb-4">
+            <div class="card">
+                <img src="@item.Image" class="card-img-top img-fluid" alt="Card Image">
+                <div class="card-body">
+                    @if (item.LuxuryLevel == 1)
+                    {
+                        <h3>
+                            Standart Hotel Room
+                        </h3>
+                    }
+                    @if (item.LuxuryLevel == 2)
+                    {
+                        <h3>
+                            Basic Hotel Room
+                        </h3>
+                    }
+                    @if (item.LuxuryLevel == 3)
+                    {
+                        <h3>
+                            Luxury Hotel Room
+                        </h3>
+                    }
+                    @if(item.Status==true){
+                        <a href="#" class="btn btn-success ">Book Now!</a>
+                    }
+                    @if (item.Status == false)
+                    {
+                        <a disabled class="btn btn-danger ">Unavailable for Now!</a>
+                    }
+
+                </div>
+            </div>
+        </div>
+    }
+</div>
+

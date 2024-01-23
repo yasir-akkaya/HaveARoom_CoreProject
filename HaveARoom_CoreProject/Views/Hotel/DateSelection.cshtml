@@ -1,0 +1,24 @@
+﻿
+
+
+
+<div class="container text-center">
+    <h1 class="py-2">Select Reservation Date</h1>
+
+    <form class="row py-3" method="post" asp-action="HotelRooms" >
+        <input type="hidden" name="hotelId" value="@ViewData["hotelId"]" />
+        
+        <label for="date1" class=" col-2 col-form-label">Check In Date</label>
+        <div class="col-4">
+            <input required type="date" id="date1" name="date1" />
+        </div>
+
+        <label for="date2" class="col-2 col-form-label">Check Out Date</label>
+        <div class="col-4 pb-4">
+            <input required type="date" id="date2" name="date2" />
+        </div >
+
+        <button class="btn btn-success" type="submit">List Available Hotel Rooms</button>
+    </form>
+</div>
+
