@@ -26,7 +26,7 @@ namespace HaveARoom_CoreProject.Areas.Admin.Services
 
         public async Task<bool> DeleteUserAsync(int id)
         {
-            var user = await db.Users.FirstOrDefaultAsync(c => c.Id == id);
+            var user = await db.Users.FirstOrDefaultAsync(c => Convert.ToInt32(c.Id) == id);
             bool result = false;
             if (user != null)
             {
@@ -45,7 +45,7 @@ namespace HaveARoom_CoreProject.Areas.Admin.Services
 
         public Task<HaveARoom_CoreProject.Models.User> GetUserByIdAsync(int id)
         {
-            var user = db.Users.FirstOrDefaultAsync(x => x.Id == id);
+            var user = db.Users.FirstOrDefaultAsync(x => Convert.ToInt32(x.Id) == id);
 
             return user;
         }

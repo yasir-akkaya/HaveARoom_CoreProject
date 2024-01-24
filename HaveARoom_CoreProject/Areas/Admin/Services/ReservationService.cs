@@ -49,14 +49,13 @@ namespace HaveARoom_CoreProject.Areas.Admin.Services
 
             return reservation;
         }
-        public async Task<bool> UpdateReservationAsync(Reservation reservation)
+        public async Task<bool> UpdateReservationAsync(Reservation reservation, int reservationId)
         {
-            var editedReservation = await db.Reservations.FirstOrDefaultAsync(x => x.Id == reservation.Id);
+            var editedReservation = await db.Reservations.FirstOrDefaultAsync(x => x.Id == reservationId);
             bool result = false;
             if (editedReservation != null)
             {
-                editedReservation.StartDate = reservation.StartDate;
-                editedReservation.EndDate = reservation.EndDate;
+                
                 editedReservation.FoodScore = reservation.FoodScore;
                 editedReservation.RoomsScore = reservation.RoomsScore;
                 editedReservation.ServiceScore = reservation.ServiceScore;

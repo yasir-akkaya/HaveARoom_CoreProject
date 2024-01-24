@@ -24,17 +24,17 @@ namespace HaveARoom_CoreProject.Areas.Identity.Pages.Account
 {
     public class RegisterModel : PageModel
     {
-        private readonly SignInManager<User> _signInManager;
-        private readonly UserManager<User> _userManager;
-        private readonly IUserStore<User> _userStore;
-        private readonly IUserEmailStore<User> _emailStore;
+        private readonly SignInManager<HaveARoom_CoreProject.Models.User> _signInManager;
+        private readonly UserManager<HaveARoom_CoreProject.Models.User> _userManager;
+        private readonly IUserStore<HaveARoom_CoreProject.Models.User> _userStore;
+        private readonly IUserEmailStore<HaveARoom_CoreProject.Models.User> _emailStore;
         private readonly ILogger<RegisterModel> _logger;
         private readonly IEmailSender _emailSender;
 
         public RegisterModel(
-            UserManager<User> userManager,
-            IUserStore<User> userStore,
-            SignInManager<User> signInManager,
+            UserManager<HaveARoom_CoreProject.Models.User> userManager,
+            IUserStore<HaveARoom_CoreProject.Models.User> userStore,
+            SignInManager<HaveARoom_CoreProject.Models.User> signInManager,
             ILogger<RegisterModel> logger,
             IEmailSender emailSender)
         {
@@ -155,11 +155,11 @@ namespace HaveARoom_CoreProject.Areas.Identity.Pages.Account
             return Page();
         }
 
-        private User CreateUser()
+        private HaveARoom_CoreProject.Models.User CreateUser()
         {
             try
             {
-                return Activator.CreateInstance<User>();
+                return Activator.CreateInstance<HaveARoom_CoreProject.Models.User>();
             }
             catch
             {
@@ -169,13 +169,13 @@ namespace HaveARoom_CoreProject.Areas.Identity.Pages.Account
             }
         }
 
-        private IUserEmailStore<User> GetEmailStore()
+        private IUserEmailStore<HaveARoom_CoreProject.Models.User> GetEmailStore()
         {
             if (!_userManager.SupportsUserEmail)
             {
                 throw new NotSupportedException("The default UI requires a user store with email support.");
             }
-            return (IUserEmailStore<User>)_userStore;
+            return (IUserEmailStore<HaveARoom_CoreProject.Models.User>)_userStore;
         }
     }
 }

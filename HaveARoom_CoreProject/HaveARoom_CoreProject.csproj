@@ -28,7 +28,7 @@
     <Folder Include="Areas\Admin\Views\User\" />
     <Folder Include="Areas\Controllers\" />
     <Folder Include="Areas\Identity\Pages\Account\" />
-    <Folder Include="Areas\User\Views\Hotel\" />
+    <Folder Include="Areas\Customer\Views\Hotel\" />
     <Folder Include="Controllers\" />
     <Folder Include="Data\" />
     <Folder Include="Models\" />

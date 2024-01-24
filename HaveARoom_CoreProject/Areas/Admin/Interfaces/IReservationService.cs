@@ -8,7 +8,7 @@ namespace HaveARoom_CoreProject.Areas.Admin.Interfaces
         public Task<List<Reservation>> GetAllReservationsAsync();
         public Task<Reservation> GetReservationByIdAsync(int id);
         public Task<bool> DeleteReservationAsync(int id);
-        public Task<bool> UpdateReservationAsync(Reservation reservation);
+        public Task<bool> UpdateReservationAsync(Reservation reservation, int reservationId);
 
     }
 }
