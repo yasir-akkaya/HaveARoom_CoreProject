@@ -1,7 +1,12 @@
-﻿namespace HaveARoom_CoreProject.Models
+﻿using HaveARoom_CoreProject.Data;
+
+namespace HaveARoom_CoreProject.Models
 {
+    
     public class Hotel
     {
+        
+
         public int Id { get; set; }
         public string Name { get; set; }
         public string Image { get; set; }

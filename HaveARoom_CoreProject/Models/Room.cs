@@ -1,4 +1,6 @@
-﻿namespace HaveARoom_CoreProject.Models
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace HaveARoom_CoreProject.Models
 {
     public class Room
     {
@@ -10,6 +12,9 @@
         public int  HotelId { get; set; }
         public Hotel Hotel { get; set; }
         public List<Reservation>? Reservations { get; set; }
+
+        [NotMapped]
+        public double? AvgScore {  get; set; }  
 
     }
 }

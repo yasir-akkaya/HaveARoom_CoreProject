@@ -10,7 +10,8 @@
                 <div class="card-body">
                     <h3 class="card-title fw-bold">@item.Name</h3>
                     @* <p class="card-title">(@item.City.Name / @item.City.Country)</p> *@
-                    <a href="#" class="btn btn-success ">View Rooms</a>
+                    <a class="btn btn-success" asp-controller="Hotel" asp-action="DateSelection" asp-route-id=" @item.Id">View Rooms</a>
+
                 </div>
             </div>
         </div>

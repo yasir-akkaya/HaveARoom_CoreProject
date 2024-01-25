@@ -8,13 +8,10 @@ using System.Security.Claims;
 
 namespace HaveARoom_CoreProject.Areas.Customer.Conttollers
 {
-
     public class MyReservationsController : Controller
     {
         private readonly ApplicationDbContext db;
         private readonly UserManager<HaveARoom_CoreProject.Models.User> userManager;
-
-
         public MyReservationsController(UserManager<HaveARoom_CoreProject.Models.User> userManager, ApplicationDbContext db)
         {
             this.userManager = userManager;
@@ -37,11 +34,13 @@ namespace HaveARoom_CoreProject.Areas.Customer.Conttollers
             if (updatedReservation != null)
             {
                 updatedReservation.FoodScore = foodScore;
-                updatedReservation.RoomsScore = serviceScore;
-                updatedReservation.ServiceScore = roomsScore;
+                updatedReservation.RoomsScore = roomsScore;
+                updatedReservation.ServiceScore = serviceScore;
 
-                db.SaveChanges();
             }
+            db.Reservations.Update(updatedReservation);
+            db.SaveChanges();
+
             string userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
 
             var userReservations = db.Reservations.Where(u => u.UserId.Equals(userId));
@@ -49,21 +48,6 @@ namespace HaveARoom_CoreProject.Areas.Customer.Conttollers
 
         }
 
-        //public IActionResult IndexFoodScore()
-        //{
-        //    string userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
 
-        //    var userReservations = db.Reservations.Where(u => u.UserId.Equals(userId));
-
-        //    return View(userReservations);
-        //}
-        //public IActionResult IndexFoodScore()
-        //{
-        //    string userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-
-        //    var userReservations = db.Reservations.Where(u => u.UserId.Equals(userId));
-
-        //    return View(userReservations);
-        //}
     }
 }

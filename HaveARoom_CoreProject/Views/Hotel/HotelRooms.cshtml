@@ -1,5 +1,7 @@
 ﻿@model List<HaveARoom_CoreProject.Models.Room>
-
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<User> SignInManager
+@inject UserManager<User> UserManager
 <div class="row">
     @foreach (var item in Model)
     {
@@ -12,27 +14,38 @@
                         <h3>
                             Standart Hotel Room
                         </h3>
+                        <p>
+                            ($)
+                        </p>
                     }
                     @if (item.LuxuryLevel == 2)
                     {
                         <h3>
-                            Basic Hotel Room
+                            Basic Hotel Room 
                         </h3>
+                        <p>
+                            ($$)
+                        </p>
                     }
                     @if (item.LuxuryLevel == 3)
                     {
                         <h3>
                             Luxury Hotel Room
                         </h3>
+                        <p>
+                            ($$$)
+                        </p>  
                     }
-                    @if(item.Status==true){
-                        <a href="#" class="btn btn-success ">Book Now!</a>
+                    @{
+                        if (SignInManager.IsSignedIn(User))
+                        {
+                            <a class="btn btn-success" asp-action="CreateReservation" asp-route-id="@item.Id">Book Now!</a>
+                        }
+                        else
+                        {
+                            <a class="btn btn-warning" disabled>You have to Login!</a>
+                        }
                     }
-                    @if (item.Status == false)
-                    {
-                        <a disabled class="btn btn-danger ">Unavailable for Now!</a>
-                    }
-
                 </div>
             </div>
         </div>

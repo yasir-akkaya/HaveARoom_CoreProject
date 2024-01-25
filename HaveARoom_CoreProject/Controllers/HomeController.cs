@@ -13,7 +13,6 @@ namespace HaveARoom_CoreProject.Controllers
     {
         private readonly ApplicationDbContext db;
         private readonly ILogger<HomeController> _logger;
-
         public HomeController(ILogger<HomeController> logger, ApplicationDbContext db)
         {
             _logger = logger;

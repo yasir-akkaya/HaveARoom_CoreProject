@@ -12,6 +12,7 @@
         public int? FoodScore { get; set; }
         public int? RoomsScore { get; set; }
         public int? ServiceScore { get; set; }
+        public double TotalPrice { get; set; }
 
     }
 }

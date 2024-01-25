@@ -1,0 +1,35 @@
+﻿@model HaveARoom_CoreProject.Models.Room
+
+<div class="container">
+    <div class="row">
+        <div class="col-5">
+            <img src="@Model.Image" class="card-img-top img-fluid" alt="Card Image">
+        </div>
+        <div class="col-3">
+                <form method="post" action="CreateReservation">
+                    <div>
+                        <input id="roomId" name="roomId" value="@Model.Id" class="d-none" />
+                        <label for="date1" class="col-form-label">Check In Date</label>
+                        <div>
+                            <input required type="date" id="date1" name="date1" />
+                        </div>
+
+                        <label for="date2" class=" col-form-label">Check Out Date</label>
+                        <div class="my-3">
+                            <input required type="date" id="date2" name="date2" />
+                        </div>
+                        <div class="mb-1">
+
+                            Price per Night*:
+                            <p class="fw-bold">
+                                @Model.Price $
+                            </p>
+
+                        </div>
+                        <button class="btn btn-success" type="submit">Go Payment</button>
+                    </div>
+                </form>
+
+        </div>
+    </div>
+</div>

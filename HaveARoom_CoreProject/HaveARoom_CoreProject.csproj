@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Iyzipay" Version="2.1.61" />
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="6.0.24" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.24" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="6.0.24" />
@@ -27,10 +28,9 @@
     <Folder Include="Areas\Admin\Views\Reservations\" />
     <Folder Include="Areas\Admin\Views\User\" />
     <Folder Include="Areas\Controllers\" />
-    <Folder Include="Areas\Identity\Pages\Account\" />
     <Folder Include="Areas\Customer\Views\Hotel\" />
+    <Folder Include="Areas\Identity\Pages\Account\" />
     <Folder Include="Controllers\" />
-    <Folder Include="Data\" />
     <Folder Include="Models\" />
     <Folder Include="Views\Shared\" />
     <Folder Include="wwwroot\css\" />

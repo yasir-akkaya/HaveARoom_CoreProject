@@ -5,98 +5,98 @@
 
         <div class="container mt-4">
             <h2>Users</h2>
-            <form method="post" action="/MyReservations/Index">
-                <table class="table table-bordered light-theme text-black">
-                    <thead class="text-center">
+            <table class="table table-bordered light-theme text-black">
+                <thead class="text-center">
+                    <tr>
+                        <th>Reservation Id</th>
+                        <th>Check In Date</th>
+                        <th>Check Out Date</th>
+                        <th>Meals In Hotel</th>
+                        <th>Room</th>
+                        <th>Service</th>
+                        <th>
+                            Save Scores
+                        </th>
+                    </tr>
+                </thead>
+                <tbody class="text-center">
+                    @foreach (var item in Model)
+                    {
                         <tr>
-                            <th>Reservation Id</th>
-                            <th>Check In Date</th>
-                            <th>Check Out Date</th>
-                            <th>Meals In Hotel</th>
-                            <th>Room</th>
-                            <th>Service</th>
-                            <th>
-                                Save Scores
-                            </th>
+                            <form method="post" action="/MyReservations/Index">
+                            <td>@item.Id</td>
+                            <td>@item.StartDate</td>
+                            <td>@item.EndDate</td>
+
+                            <td class="mx-1 text-center">
+                                <input class="d-none" value="@item.Id" name="reservationId" id="reservationId" />
+                                    @{
+                                        if (@item.FoodScore == null)
+                                        {
+                                        <select id="foodScore" name="foodScore">
+                                            <option value="1">1 </option>
+                                            <option value="2">2 </option>
+                                            <option value="3">3 </option>
+                                            <option value="4">4 </option>
+                                            <option value="5">5 </option>
+                                        </select>
+                                        }
+                                        else
+                                        {
+                                        <button class="btn btn-sm btn-primary p-1" disabled>@item.FoodScore</button>
+                                        }
+                                    }
+                            </td>
+
+                            <td class=" mx-1 text-center">
+                                    @{
+                                        if (@item.RoomsScore == null)
+                                        {
+                                        <select id="roomsScore" name="roomsScore">
+                                            <option value="1">1 </option>
+                                            <option value="2">2 </option>
+                                            <option value="3">3 </option>
+                                            <option value="4">4 </option>
+                                            <option value="5">5 </option>
+                                        </select>
+                                        }
+                                        else
+                                        {
+                                        <button class="btn btn-sm btn-primary p-1" disabled>@item.RoomsScore</button>
+                                        }
+                                    }
+                            </td>
+
+                            <td class="mx-1 text-center">
+                                    @{
+                                        if (@item.ServiceScore == null)
+                                        {
+                                        <select id="serviceScore" name="serviceScore">
+                                            <option value="1">1 </option>
+                                            <option value="2">2 </option>
+                                            <option value="3">3 </option>
+                                            <option value="4">4 </option>
+                                            <option value="5">5 </option>
+                                        </select>
+                                        }
+                                        else
+                                        {
+                                        <button class="btn btn-sm btn-primary p-1" disabled>@item.ServiceScore</button>
+                                        }
+                                    }
+                            </td>
+
+                            <td class="mx-1">
+                                <button type="submit" class="btn btn-sm btn-primary p-1 @(item.FoodScore != null ? "d-none" : "")">
+                                    Submit
+                                </button>
+                            </td>
+
+                            </form>
                         </tr>
-                    </thead>
-                    <tbody class="text-center">
-                        @foreach (var item in Model)
-                        {
-                            <tr>
-                                <td>@item.Id</td>
-                                <td>@item.StartDate</td>
-                                <td>@item.EndDate</td>
-
-                                <td class="mx-1 text-center">
-                                    <input class="d-none" value="@item.Id" name="reservationId" id="reservationId" />
-                                    @{
-                                        if (@item.FoodScore == 0)
-                                        {
-                                            <select id="foodScore" name="foodScore">
-                                                <option value="1">1 </option>
-                                                <option value="2">2 </option>
-                                                <option value="3">3 </option>
-                                                <option value="4">4 </option>
-                                                <option value="5">5 </option>
-                                            </select>
-                                        }
-                                        else
-                                        {
-                                            <button class="btn btn-sm btn-primary p-1" disabled>@item.FoodScore</button>
-                                        }
-                                    }
-                                </td>
-
-                                <td class=" mx-1 text-center">
-                                    @{
-                                        if (@item.RoomsScore == 0)
-                                        {
-                                            <select id="roomsScore" name="roomsScore">
-                                                <option value="1">1 </option>
-                                                <option value="2">2 </option>
-                                                <option value="3">3 </option>
-                                                <option value="4">4 </option>
-                                                <option value="5">5 </option>
-                                            </select>
-                                        }
-                                        else
-                                        {
-                                            <button class="btn btn-sm btn-primary p-1" disabled>@item.RoomsScore</button>
-                                        }
-                                    }
-                                </td>
-
-                                <td class="mx-1 text-center">
-                                    @{
-                                        if (@item.ServiceScore == 0)
-                                        {
-                                            <select id="serviceScore" name="serviceScore">
-                                                <option value="1">1 </option>
-                                                <option value="2">2 </option>
-                                                <option value="3">3 </option>
-                                                <option value="4">4 </option>
-                                                <option value="5">5 </option>
-                                            </select>
-                                        }
-                                        else
-                                        {
-                                            <button class="btn btn-sm btn-primary p-1" disabled>@item.ServiceScore</button>
-                                        }
-                                    }
-                                </td>
-
-                                <td class="mx-1">
-                                    <button type="submit" class="btn btn-sm btn-primary p-1 @(item.FoodScore != 0 ? "d-none" : "")">
-                                        Submit
-                                    </button>
-                                </td>
-
-                            </tr>
-                        }
-                    </tbody>
-                </table>
-            </form>
+                    }
+                </tbody>
+            </table>
         </div>
 
 
